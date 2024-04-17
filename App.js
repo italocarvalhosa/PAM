@@ -1,11 +1,16 @@
+
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-
+import Title from './src/Componentes/Title';
+import Form from './src/Componentes/Form';
+ 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Title title="Meu Primeiro Formulario"></Title>
+      <Text> Meu primeiro Aplicativo</Text>
+      <Form> </Form>
+    <StatusBar style="auto" />
     </View>
   );
 }

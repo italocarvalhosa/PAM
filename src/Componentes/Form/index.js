@@ -1,6 +1,9 @@
 import {Button, TextInput, View, Text} from "react-native-web";
 import Resultado from "./Resultado";
 import { useState } from "react";
+import styles from "./style";
+import { TouchableOpacity } from "react-native";
+
 
 export default function Form()
 {
@@ -22,39 +25,48 @@ export default function Form()
             setHeight(null);
             setWeight(null);
             setMensagem("Seu imc e igual:")
-            setButtontitle("Calcular novamente");
+            setButtonTitle("Calcular novamente");
 
             return;
 
         }
 
         setImc(null);
-        setButtontitle('Calcular');
+        setButtonTitle('Calcular');
         setMensagem('Preencha o peso e altura');
     
     }
 
 
     return (
-        <View> 
-            <View> 
-                <Text> Altura</Text>
+        <View style= {styles.formContext}> 
+            <View style={styles.form}> 
+                <Text style={styles.formLabel}> Altura</Text>
                 <TextInput 
                 placeholder="1.75"
                  keyboardType="numeric"
                  onChangeText={setHeight}
                  value ={height}
+                 style={styles.formInput}
                 />
 
-                <Text> Peso</Text>
+                <Text style={styles.formLabel}> Peso</Text>
                 <TextInput 
                 placeholder="80,2 (KG)"
                  keyboardType="numeric"
                  onChangeText={setWeight}
                  value = {weight}
+                 style={styles.formInput}
                  />
 
-                <Button title={buttonTitle} onPress={() => validarImc()}/>
+
+                <TouchHableOpacity
+                    title={buttonTitle}
+                    style={styles.formButton} 
+                    onPress={() => validarImc()}
+                    >
+                        <Text style={styles.formButtonText}>{buttonTitle}</Text>
+                    </TouchHableOpacity>
 
             </View>
 
